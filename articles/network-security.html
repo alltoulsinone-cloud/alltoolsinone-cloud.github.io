@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل تأمين شبكة الواي فاي المنزلية | Tech Meknes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #9b59b6;
+        }
+        
+        .article-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .article-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .article-content {
+            padding: 50px;
+        }
+        
+        .step-box {
+            background: #f8f9fa;
+            border-right: 5px solid var(--accent);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <h1>دليل تأمين شبكة الواي فاي المنزلية بشكل محترف</h1>
+            <p>كشف المتسللين، منع سرقة النت، وحماية بياناتك الشخصية</p>
+        </div>
+        
+        <div class="article-content">
+            <h2>لماذا يجب تأمين شبكتك المنزلية؟</h2>
+            <p>شبكة الواي فاي غير المؤمنة هي بوابة مفتوحة للمتسللين ل:</p>
+            <ul>
+                <li>سرقة بياناتك الشخصية</li>
+                <li>استخدام إنترنتك مجاناً</li>
+                <li>شن هجمات من خلال IP الخاص بك</li>
+                <li>التجسس على اتصالاتك</li>
+                <li>اختراق الأجهزة المتصلة (كاميرات، هواتف، أجهزة ذكية)</li>
+            </ul>
+            
+            <div class="step-box">
+                <h3><span class="step-number">1</span> تغيير بيانات الدخول الافتراضية للراوتر</h3>
+                <p>أول خطوة وأهمها. معظم المستخدمين يتركون اسم المستخدم وكلمة المرور الافتراضية.</p>
+                <p><strong>كيفية التغيير:</strong></p>
+                <ol>
+                    <li>ادخل لإعدادات الراوتر (عادة 192.168.1.1 أو 192.168.0.1)</li>
+                    <li>استخدم admin/admin أو admin/password للدخول أول مرة</li>
+                    <li>اذهب إلى System أو Administration</li>
+                    <li>غير اسم المستخدم وكلمة المرور</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h3><span class="step-number">2</span> تحديث برنامج الراوتر (Firmware)</h3>
+                <p>التحديثات تصلح ثغرات أمنية معروفة.</p>
+                <p><strong>خطوات التحديث:</strong></p>
+                <ol>
+                    <li>ابحث عن طراز الراوتر الخاص بك</li>
+                    <li>اذهب لموقع الشركة المصنعة</li>
+                    <li>حمل أحدث إصدار</li>
+                    <li>ادخل إعدادات الراوتر → System Update</li>
+                    <li>اختر الملف المحمل وقم بالتحديث</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h3><span class="step-number">3</span> تفعيل تشفير WPA3 أو WPA2</h3>
+                <p>تأكد أن تشفير الشبكة هو WPA2 على الأقل، والأفضل WPA3 إذا متوفر.</p>
+                <p><strong>تجنب:</strong></p>
+                <ul>
+                    <li><strong>WEP:</strong> قديم وسهل الاختراق (يكسر في 5 دقائق)</li>
+                    <li><strong>WPA:</strong> غير آمن أيضاً</li>
+                    <li><strong>فتح (Open):</strong> كارثة أمنية</li>
+                </ul>
+            </div>
+            
+            <div class="step-box">
+                <h3><span class="step-number">4</span> اختيار كلمة مرور قوية للواي فاي</h3>
+                <p>يجب أن تكون كلمة المرور:</p>
+                <ul>
+                    <li>12 حرفاً على الأقل</li>
+                    <li>مزيج من أحرف كبيرة وصغيرة</li>
+                    <li>تحتوي على أرقام ورموز خاصة</li>
+                    <li>لا تكون معلومات شخصية (هاتف، تاريخ ميلاد)</li>
+                    <li>مثال: <code>Meknes@Tech_2024#Secure</code></li>
+                </ul>
+            </div>
+            
+            <h2>أدوات للكشف عن المتسللين</h2>
+            
+            <h3>1. باستخدام Termux (على الهاتف)</h3>
+            <div class="code-block">
+<span class="comment"># تثبيت nmap أولاً</span>
+<span class="command">pkg install nmap</span>
+
+<span class="comment"># مسح الشبكة لاكتشاف جميع الأجهزة</span>
+<span class="command">nmap -sP 192.168.1.0/24</span>
+
+<span class="comment"># لمعرفة الأجهزة المجهولة، قارن النتيجة مع:</span>
+<span class="comment"># - هاتفك</span>
+<span class="comment"># - لابتوبك</span>
+<span class="comment"># - التلفاز الذكي</span>
+<span class="comment"># أي جهاز إضافي = مشبوه!</span>
+            </div>
+            
+            <h3>2. باستخدام Wireless Network Watcher (ويندوز)</h3>
+            <p>برنامج مجاني يظهر جميع الأجهزة المتصلة بشبكتك.</p>
+            
+            <h2>إعدادات متقدمة للحماية</h2>
+            
+            <div class="step-box">
+                <h3><span class="step-number">5</span> تفعيل MAC Address Filtering</h3>
+                <p>السماح للأجهزة المعروفة فقط بالاتصال.</p>
+                <p><strong>كيفية معرفة MAC Address:</strong></p>
+                <div class="code-block">
+<span class="comment"># على ويندوز:</span>
+<span class="command">ipconfig /all</span>
+
+<span class="comment"># على Linux/Termux:</span>
+<span class="command">ifconfig</span>
+
+<span class="comment"># على Android:</span>
+<span class="comment"># الإعدادات → حول الهاتف → حالة → عنوان MAC للواي فاي</span>
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h3><span class="step-number">6</span> إخفاء SSID (اسم الشبكة)</h3>
+                <p>شبكتك لن تظهر في قائمة الشبكات المتاحة، يجب كتابة اسمها يدوياً للاتصال.</p>
+            </div>
+            
+            <div class="step-box">
+                <h3><span class="step-number">7</span> تقليل قوة الإرسال (Tx Power)</h3>
+                <p>تقليل مدى الإشارة لمنع الوصول من خارج المنزل.</p>
+            </div>
+            
+            <h2>كشف ومكافحة هجمات الواي فاي</h2>
+            
+            <h3>هجوم Evil Twin</h3>
+            <p>يقوم المهاجم بإنشاء شبكة واي فاي بنفس اسم شبكتك لجذب الضحايا.</p>
+            <p><strong>الحماية:</strong></p>
+            <ul>
+                <li>لا تتصل بشبكات واي فاي عامة مجهولة</li>
+                <li>استخدم VPN عند الاتصال بشبكات عامة</li>
+                <li>تفقد عنوان MAC للشبكة</li>
+            </ul>
+            
+            <h3>هجوم Deauthentication</h3>
+            <p>يقطع المهاجم اتصالك بالشبكة لإجبارك على إعادة الاتصال وسرقة بياناتك.</p>
+            <p><strong>الكشف باستخدام Termux:</strong></p>
+            <div class="code-block">
+<span class="command">pkg install aircrack-ng</span>
+<span class="command">airodump-ng wlan0</span>  <span class="comment"># مراقبة حركة الشبكة</span>
+            </div>
+            
+            <h2>سكريبت مراقبة شبكة باستخدام Python</h2>
+            
+            <div class="code-block">
+<span class="comment"># network_monitor.py</span>
+import scapy.all as scapy
+import time
+
+def scan_network(ip_range):
+    print(f"جاري مسح الشبكة {ip_range}")
+    arp_request = scapy.ARP(pdst=ip_range)
+    broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
+    packet = broadcast/arp_request
+    answered = scapy.srp(packet, timeout=1, verbose=False)[0]
+    
+    devices = []
+    for element in answered:
+        device_info = {
+            "ip": element[1].psrc,
+            "mac": element[1].hwsrc
+        }
+        devices.append(device_info)
+    
+    return devices
+
+def monitor_network(known_devices, ip_range="192.168.1.0/24"):
+    while True:
+        current_devices = scan_network(ip_range)
+        unknown_devices = []
+        
+        for device in current_devices:
+            if device["mac"] not in [d["mac"] for d in known_devices]:
+                unknown_devices.append(device)
+        
+        if unknown_devices:
+            print("⚠️ تحذير: أجهزة غير معروفة على الشبكة!")
+            for device in unknown_devices:
+                print(f"   IP: {device['ip']} | MAC: {device['mac']}")
+        
+        time.sleep(60)  <span class="comment"># فحص كل دقيقة</span>
+
+<span class="comment"># قائمة بالأجهزة المعروفة</span>
+known_devices = [
+    {"ip": "192.168.1.2", "mac": "AA:BB:CC:DD:EE:FF"},
+    {"ip": "192.168.1.3", "mac": "11:22:33:44:55:66"}
+]
+
+monitor_network(known_devices)
+            </div>
+            
+            <h2>أدوات مجانية للحماية</h2>
+            <ul>
+                <li><strong>Wireshark:</strong> تحليل حركة الشبكة</li>
+                <li><strong>Nmap:</strong> اكتشاف الأجهزة والخدمات</li>
+                <li><strong>GlassWire:</strong> مراقبة استخدام الشبكة</li>
+                <li><strong>Bitdefender Home Scanner:</strong> فحص الشبكة المنزلية</li>
+            </ul>
+            
+            <h2>نصائح إضافية للحماية</h2>
+            <ol>
+                <li>أطفئ الراوتر عندما تخرج لفترة طويلة</li>
+                <li>افصل الأجهزة الذكية غير المستخدمة</li>
+                <li>استخدم شبكة ضيوف (Guest Network) للزوار</li>
+                <li>غير كلمة المرور كل 3-6 أشهر</li>
+                <li>راقب فاتورة الإنترنت للكشف عن استخدام غير طبيعي</li>
+            </ol>
+            
+            <div class="navigation">
+                <a href="termux-guide.html" class="nav-btn"><i class="fas fa-arrow-right"></i> المقال السابق: دليل Termux</a>
+                <a href="dvr-setup.html" class="nav-btn">المقال التالي: أنظمة DVR <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
