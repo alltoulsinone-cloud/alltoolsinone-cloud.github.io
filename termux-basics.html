@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل Termux الشامل من الصفر إلى الاحتراف | Tech Meknes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* أنماط المقالة */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background: #f5f7fa;
+            color: #333;
+        }
+        
+        .article-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .article-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+        
+        .article-content {
+            padding: 50px;
+        }
+        
+        .article-content h2 {
+            color: var(--primary);
+            margin: 40px 0 20px;
+            padding-right: 15px;
+            border-right: 4px solid var(--accent);
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 25px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 25px 0;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .command {
+            color: #4ec9b0;
+        }
+        
+        .comment {
+            color: #6a9955;
+        }
+        
+        .tip-box {
+            background: #e8f7f0;
+            border-right: 5px solid #27ae60;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-right: 5px solid #f39c12;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <h1>دليل Termux الشامل من الصفر إلى الاحتراف</h1>
+            <p>تحويل هاتفك الأندرويد إلى جهاز اختراق أخلاقي متكامل</p>
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> 20 يناير 2024</span>
+                <span><i class="far fa-clock"></i> 15 دقيقة قراءة</span>
+                <span><i class="far fa-eye"></i> 2,150 مشاهدة</span>
+            </div>
+        </div>
+        
+        <div class="article-content">
+            <h2>ما هو Termux؟</h2>
+            <p>Termux هو تطبيق محاكي طرفية (terminal emulator) لنظام Android، يوفر بيئة Linux كاملة بدون الحاجة إلى صلاحيات الروت (root). يمكنك من خلاله تشغيل آلاف أدوات Linux مباشرة على هاتفك.</p>
+            
+            <div class="tip-box">
+                <strong>💡 ميزة رائعة:</strong> يمكنك كتابة سكريبتات Bash و Python وتنفيذها مباشرة، تثبيت حزم متقدمة، وحتى تشغيل خوادم ويب على هاتفك!
+            </div>
+            
+            <h2>تثبيت Termux</h2>
+            <h3>الطريقة 1: من F-Droid (مستحسن)</h3>
+            <p>لتجنب المشاكل، ننصح بتثبيت Termux من متجر F-Droid:</p>
+            
+            <div class="code-block">
+<span class="comment"># 1. تثبيت F-Droid من:</span>
+https://f-droid.org
+
+<span class="comment"># 2. البحث عن Termux وتثبيته</span>
+<span class="comment"># 3. بعد التثبيت، افتح التطبيق</span>
+            </div>
+            
+            <h3>الطريقة 2: من Google Play (غير مستحسن)</h3>
+            <p>إصدار Play Store قديم وغير مدعوم، لكن يمكنك تجربته:</p>
+            
+            <div class="warning-box">
+                <strong>⚠️ تحذير:</strong> إصدار Google Play قديم ولا يحصل على تحديثات. استخدم F-Droid للحصول على أفضل تجربة.
+            </div>
+            
+            <h2>الإعداد الأولي والتحديثات</h2>
+            
+            <div class="code-block">
+<span class="comment"># بعد فتح Termux، ابدأ بتحديث الحزم</span>
+<span class="command">pkg update && pkg upgrade</span>
+
+<span class="comment"># طلب إذن التخزين</span>
+<span class="command">termux-setup-storage</span>
+
+<span class="comment"># هذا الأمر سيعطيك صلاحيات الوصول إلى:</span>
+<span class="comment"># - التخزين الداخلي</span>
+<span class="comment"># - SD Card</span>
+<span class="comment"># - الكاميرا (لاحقاً)</span>
+            </div>
+            
+            <h2>الأوامر الأساسية التي يجب معرفتها</h2>
+            
+            <div class="code-block">
+<span class="comment"># التنقل بين المجلدات</span>
+<span class="command">pwd</span>                  <span class="comment"># عرض المجلد الحالي</span>
+<span class="command">ls</span>                    <span class="comment"># عرض محتويات المجلد</span>
+<span class="command">ls -la</span>                <span class="comment"># عرض جميع الملفات مع التفاصيل</span>
+<span class="command">cd اسم_المجلد</span>         <span class="comment"># الدخول إلى مجلد</span>
+<span class="command">cd ..</span>                 <span class="comment"># الرجوع لمستوى أعلى</span>
+<span class="command">cd</span>                    <span class="comment"># العودة للمجلد الرئيسي</span>
+
+<span class="comment"># إدارة الملفات</span>
+<span class="command">mkdir اسم_المجلد</span>      <span class="comment"># إنشاء مجلد جديد</span>
+<span class="command">touch اسم_الملف</span>       <span class="comment"># إنشاء ملف جديد</span>
+<span class="command">cat اسم_الملف</span>         <span class="comment"># عرض محتوى الملف</span>
+<span class="command">nano اسم_الملف</span>        <span class="comment"># محرر نصوص بسيط</span>
+<span class="command">rm اسم_الملف</span>          <span class="comment"># حذف ملف</span>
+<span class="command">rm -r اسم_المجلد</span>      <span class="comment"># حذف مجلد</span>
+<span class="command">cp ملف1 ملف2</span>           <span class="comment"># نسخ ملف</span>
+<span class="command">mv ملف1 موقع_جديد</span>     <span class="comment"># نقل/إعادة تسمية ملف</span>
+            </div>
+            
+            <h2>تثبيت أدوات مهمة</h2>
+            
+            <h3>1. تثبيت Python والأدوات الأساسية</h3>
+            <div class="code-block">
+<span class="command">pkg install python</span>          <span class="comment"># تثبيت Python 3</span>
+<span class="command">pkg install python2</span>         <span class="comment"># تثبيت Python 2 (للأدوات القديمة)</span>
+<span class="command">pkg install git</span>             <span class="comment"># تثبيت Git</span>
+<span class="command">pkg install wget</span>            <span class="comment"># تثبيت wget لتحميل الملفات</span>
+<span class="command">pkg install curl</span>            <span class="comment"># تثبيت curl</span>
+            </div>
+            
+            <h3>2. أدوات الشبكات والاختراق الأخلاقي</h3>
+            <div class="code-block">
+<span class="comment"># nmap - مسح الشبكات</span>
+<span class="command">pkg install nmap</span>
+
+<span class="comment"># hydra - كسر كلمات المرور</span>
+<span class="command">pkg install hydra</span>
+
+<span class="comment"># sqlmap - فحص قواعد البيانات</span>
+<span class="command">pkg install sqlmap</span>
+
+<span class="comment"># metasploit-framework</span>
+<span class="command">pkg install unstable-repo</span>
+<span class="command">pkg install metasploit</span>
+
+<span class="comment"># إصلاح مشكلة metasploit</span>
+<span class="command">cd $PREFIX/var/lib/postgresql</span>
+<span class="command">./initdb</span>
+<span class="command">pg_ctl -D $PREFIX/var/lib/postgresql start</span>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 نصيحة احترافية:</strong> استخدم `apt` بدلاً من `pkg` إذا كنت تفضل، فهما يعملان بنفس الطريقة في Termux.
+            </div>
+            
+            <h3>3. أدوات التشفير والأمان</h3>
+            <div class="code-block">
+<span class="command">pkg install openssl</span>         <span class="comment"># أدوات التشفير</span>
+<span class="command">pkg install john</span>            <span class="comment"># John the Ripper</span>
+<span class="command">pkg install hashcat</span>         <span class="comment"># كسر التشفير</span>
+<span class="command">pkg install aircrack-ng</span>     <span class="comment"># اختراق شبكات الواي فاي</span>
+            </div>
+            
+            <h2>سكريبتات جاهزة مفيدة</h2>
+            
+            <h3>سكريبت تثبيت جميع الأدوات دفعة واحدة</h3>
+            <div class="code-block">
+<span class="comment"># أنشئ ملف install_all.sh</span>
+<span class="command">nano install_all.sh</span>
+
+<span class="comment"># الصق هذا المحتوى:</span>
+#!/bin/bash
+echo "جارٍ تثبيت جميع الأدوات..."
+pkg update && pkg upgrade -y
+pkg install -y python python2 git wget curl
+pkg install -y nmap hydra sqlmap
+pkg install -y unstable-repo
+pkg install -y metasploit
+pkg install -y openssl john hashcat
+pkg install -y aircrack-ng
+echo "✅ تم تثبيت جميع الأدوات بنجاح!"
+
+<span class="comment"># حفظ الملف وخروجه (في nano: Ctrl+X ثم Y ثم Enter)</span>
+<span class="comment"># جعل الملف قابلاً للتنفيذ:</span>
+<span class="command">chmod +x install_all.sh</span>
+<span class="comment"># تشغيل السكريبت:</span>
+<span class="command">./install_all.sh</span>
+            </div>
+            
+            <h3>سكريبت فحص الأمان البسيط</h3>
+            <div class="code-block">
+<span class="command">nano security_scan.sh</span>
+
+<span class="comment"># محتوى السكريبت:</span>
+#!/bin/bash
+echo "=== فحص أمني بسيط ==="
+echo "1. فحص الاتصالات المفتوحة:"
+netstat -tulpn
+echo ""
+echo "2. فحص العمليات النشطة:"
+ps aux
+echo ""
+echo "3. فحص المساحة الحرة:"
+df -h
+echo ""
+echo "✅ اكتمل الفحص"
+
+<span class="command">chmod +x security_scan.sh</span>
+<span class="command">./security_scan.sh</span>
+            </div>
+            
+            <h2>مشاكل شائعة وحلولها</h2>
+            
+            <h3>المشكلة 1: "Unable to locate package"</h3>
+            <p><strong>الحل:</strong> قم بتحديث قائمة الحزم أولاً:</p>
+            <div class="code-block">
+<span class="command">pkg update</span>
+<span class="command">pkg upgrade</span>
+            </div>
+            
+            <h3>المشكلة 2: Termux لا يفتح أو يغلق فجأة</h3>
+            <p><strong>الحل:</strong> امسح بيانات التطبيق وأعد التثبيت من F-Droid.</p>
+            
+            <h3>المشكلة 3: لا يمكن تثبيت metasploit</h3>
+            <p><strong>الحل:</strong> تأكد من تثبيت unstable-repo أولاً:</p>
+            <div class="code-block">
+<span class="command">pkg install unstable-repo</span>
+<span class="command">pkg install metasploit</span>
+            </div>
+            
+            <h2>مشاريع عملية يمكنك تنفيذها</h2>
+            
+            <h3>1. مسح شبكة محلية</h3>
+            <div class="code-block">
+<span class="command">nmap -sP 192.168.1.0/24</span>    <span class="comment"># اكتشاف الأجهزة النشطة</span>
+<span class="command">nmap -A 192.168.1.1</span>         <span class="comment"># مسح جهاز معين</span>
+            </div>
+            
+            <h3>2. إنشاء خادم ويب بسيط</h3>
+            <div class="code-block">
+<span class="command">pkg install php</span>
+<span class="command">mkdir webserver</span>
+<span class="command">cd webserver</span>
+<span class="command">echo "&lt;h1&gt;Hello from Termux!&lt;/h1&gt;" > index.php</span>
+<span class="command">php -S 0.0.0.0:8080</span>
+            </div>
+            <p>ثم افتح متصفح واذهب إلى: <code>http://localhost:8080</code></p>
+            
+            <h3>3. فحص موقع ويب لثغرات SQL</h3>
+            <div class="code-block">
+<span class="command">sqlmap -u "http://example.com/page?id=1" --dbs</span>
+            </div>
+            
+            <div class="warning-box">
+                <strong>⚠️ تحذير أخلاقي:</strong> استخدم هذه الأدوات فقط على أنظمة تملكها أو لديك إذن كتابي لاختبارها. الاختراق غير المصرح به جريمة يعاقب عليها القانون.
+            </div>
+            
+            <h2>موارد إضافية للتعلم</h2>
+            <ul>
+                <li><strong>Termux Wiki:</strong> https://wiki.termux.com</li>
+                <li><strong>مجتمع Termux العربي:</strong> @TermuxArabic على تليجرام</li>
+                <li><strong>قناة Termux التعليمية:</strong> Termux Tutorials على يوتيوب</li>
+                <li><strong>مستودع أدوات Termux:</strong> https://github.com/termux</li>
+            </ul>
+            
+            <div class="navigation">
+                <a href="cybersecurity-basics.html" class="nav-btn"><i class="fas fa-arrow-right"></i> المقال السابق: أساسيات الأمن السيبراني</a>
+                <a href="network-security.html" class="nav-btn">المقال التالي: تأمين الشبكات <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
