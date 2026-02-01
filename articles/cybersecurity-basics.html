@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل المبتدئين الشامل للأمن السيبراني | Tech Meknes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* أنماط المقالة */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background: #f5f7fa;
+            color: #333;
+        }
+        
+        .article-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .article-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+        
+        .article-content {
+            padding: 50px;
+        }
+        
+        .article-content h2 {
+            color: var(--primary);
+            margin: 40px 0 20px;
+            padding-right: 15px;
+            border-right: 4px solid var(--secondary);
+        }
+        
+        .article-content h3 {
+            color: #444;
+            margin: 30px 0 15px;
+        }
+        
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 25px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 25px 0;
+            overflow-x: auto;
+            direction: ltr;
+        }
+        
+        .tip-box {
+            background: #e8f4fd;
+            border-right: 5px solid #3498db;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .warning-box {
+            background: #fde8e8;
+            border-right: 5px solid #e74c3c;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <h1>دليل المبتدئين الشامل للأمن السيبراني</h1>
+            <p>كل ما تحتاج معرفته للبدء في عالم الأمن والحماية الرقمية</p>
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> 15 يناير 2024</span>
+                <span><i class="far fa-clock"></i> 12 دقيقة قراءة</span>
+                <span><i class="far fa-eye"></i> 1,250 مشاهدة</span>
+            </div>
+        </div>
+        
+        <div class="article-content">
+            <h2>مقدمة: لماذا الأمن السيبراني مهم؟</h2>
+            <p>في عالم يعتمد بشكل متزايد على التكنولوجيا، أصبحت حماية بياناتك ومعلوماتك الشخصية أمراً ضرورياً. كل يوم نشهد هجمات إلكترونية تستهدف الأفراد والشركات والحكومات. فهم أساسيات الأمن السيبراني لم يعد ترفاً بل ضرورة لكل مستخدم للإنترنت.</p>
+            
+            <h2>أنواع التهديدات الإلكترونية الشائعة</h2>
+            
+            <h3>1. البرامج الضارة (Malware)</h3>
+            <p>وهي برامج خبيثة مصممة لإلحاق الضرر بأنظمة الكمبيوتر. تشمل:</p>
+            <ul>
+                <li><strong>الفيروسات (Viruses):</strong> تنتشر عن طريق الملفات المصابة</li>
+                <li><strong>برامج الفدية (Ransomware):</strong> تشفر ملفاتك وتطلب فدية</li>
+                <li><strong>أحصنة طروادة (Trojans):</strong> تتنكر كبرامج مفيدة</li>
+                <li><strong>برامج التجسس (Spyware):</strong> تجمع معلوماتك دون علمك</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>💡 نصيحة عملية:</strong> لا تفتح المرفقات من رسائل البريد الإلكتروني غير المعروفة، حتى لو بدت أنها من مصادر موثوقة.
+            </div>
+            
+            <h3>2. هجمات التصيد (Phishing)</h3>
+            <p>محاولات احتيالية للحصول على معلومات حساسة مثل كلمات المرور وأرقام البطاقات الائتمانية عن طريق انتحال هوية مؤسسات موثوقة عبر البريد الإلكتروني أو الرسائل النصية.</p>
+            
+            <div class="warning-box">
+                <strong>⚠️ تحذير هام:</strong> البنوك والمؤسسات المالية لا تطلب أبداً معلوماتك الحساسة عبر البريد الإلكتروني أو الرسائل النصية.
+            </div>
+            
+            <h3>3. هجمات حجب الخدمة (DDoS)</h3>
+            <p>إغراق الخادم بالطلبات الزائفة مما يجعله غير قادر على الاستجابة للطلبات الحقيقية من المستخدمين الشرعيين.</p>
+            
+            <h2>أساسيات الحماية الشخصية</h2>
+            
+            <h3>1. كلمات المرور القوية</h3>
+            <p>استخدم كلمات مرور قوية تتكون من:</p>
+            <div class="code-block">
+# مثال على كلمة مرور قوية
+P@ssw0rd_2024_Secure#
+
+# مثال على كلمة مرور ضعيفة
+password123
+            </div>
+            
+            <p><strong>نصائح لكلمات المرور:</strong></p>
+            <ul>
+                <li>استخدم 12 حرفاً على الأقل</li>
+                <li>امزج بين الأحرف الكبيرة والصغيرة</li>
+                <li>أضف أرقاماً ورموزاً خاصة</li>
+                <li>لا تستخدم نفس كلمة المرور لجميع حساباتك</li>
+                <li>استخدم مدير كلمات مرور مثل LastPass أو Bitwarden</li>
+            </ul>
+            
+            <h3>2. المصادقة الثنائية (2FA)</h3>
+            <p>تفعيل المصادقة الثنائية يضيف طبقة أمان إضافية. الطرق الشائعة:</p>
+            <ul>
+                <li>رموز عبر تطبيق Google Authenticator</li>
+                <li>رسائل SMS (أقل أماناً)</li>
+                <li>مفاتيح أمان فيزيائية (YubiKey)</li>
+            </ul>
+            
+            <h3>3. تحديث البرامج بانتظام</h3>
+            <p>التحديثات الأمنية تغلق الثغرات المعروفة. احرص على تحديث:</p>
+            <ul>
+                <li>نظام التشغيل (Windows, macOS, Linux)</li>
+                <li>متصفح الإنترنت (Chrome, Firefox, Edge)</li>
+                <li>برامج مكافحة الفيروسات</li>
+                <li>جميع التطبيقات المثبتة</li>
+            </ul>
+            
+            <h2>أدوات أساسية للحماية</h2>
+            
+            <h3>1. برامج مكافحة الفيروسات</h3>
+            <ul>
+                <li><strong>Windows Defender:</strong> مدمج في ويندوز 10/11، مجاني وفعال</li>
+                <li><strong>Malwarebytes:</strong> ممتاز لاكتشاف البرامج الضارة</li>
+                <li><strong>Avast/AVG:</strong> خيارات مجانية ومدفوعة</li>
+            </ul>
+            
+            <h3>2. جدران الحماية (Firewalls)</h3>
+            <p>تتحكم في حركة المرور الواردة والصادرة بناءً على قواعد أمنية محددة.</p>
+            
+            <h3>3. الشبكات الافتراضية الخاصة (VPN)</h3>
+            <p>تشفر اتصالك بالإنترنت وتخفي عنوان IP الخاص بك. توصيات:</p>
+            <ul>
+                <li>ProtonVPN (مجاني)</li>
+                <li>Mullvad</li>
+                <li>Windscribe</li>
+            </ul>
+            
+            <h2>مصادر تعليمية مجانية</h2>
+            <ul>
+                <li>Cybersecurity Fundamentals - IBM (Coursera)</li>
+                <li>Introduction to Cybersecurity - Cisco Networking Academy</li>
+                <li>TryHackMe.com - مختبرات تفاعلية</li>
+                <li>HackTheBox.com - تحديات واقعية</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>🎓 للبدء في مجال الأمن السيبراني:</strong> ابدأ بأساسيات الشبكات، ثم تعلم Linux، ثم انتقل إلى أدوات الاختراق الأخلاقي مثل Nmap و Metasploit.
+            </div>
+            
+            <div class="navigation">
+                <a href="#" class="nav-btn"><i class="fas fa-arrow-right"></i> المقال السابق</a>
+                <a href="termux-guide.html" class="nav-btn">المقال التالي: دليل Termux <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
