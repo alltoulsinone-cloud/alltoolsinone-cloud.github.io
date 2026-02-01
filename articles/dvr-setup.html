@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل شامل لأنظمة DVR والمراقبة | Tech Meknes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .article-header {
+            background: linear-gradient(135deg, #434343 0%, #000000 100%);
+        }
+        
+        .brand-box {
+            background: #eef2ff;
+            border: 2px solid #667eea;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .brand-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .troubleshooting-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .troubleshooting-table th {
+            background: #2c3e50;
+            color: white;
+            padding: 12px;
+            text-align: right;
+        }
+        
+        .troubleshooting-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .troubleshooting-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <h1>الدليل الشامل لأنظمة DVR والمراقبة</h1>
+            <p>الإعداد، الاسترجاع، وحل المشاكل لأنظمة Hikvision, Dahua, ونظيراتها</p>
+        </div>
+        
+        <div class="article-content">
+            <h2>مقدمة لأنظمة المراقبة</h2>
+            <p>أنظمة DVR (Digital Video Recorder) و NVR (Network Video Recorder) أصبحت أساسية في المنازل والشركات. في هذا الدليل سنتعلم كيفية:</p>
+            <ul>
+                <li>إعداد النظام من الصفر</li>
+                <li>استرجاع كلمات المرور المنسية</li>
+                <li>حل المشاكل الشائعة</li>
+                <li>الوصول عن بعد</li>
+                <li>صيانة النظام</li>
+            </ul>
+            
+            <h2>أنواع أنظمة المراقبة</h2>
+            
+            <div class="brand-box">
+                <h3 class="brand-title">1. أنظمة Hikvision</h3>
+                <p><strong>المميزات:</strong></p>
+                <ul>
+                    <li>واجهة عربية كاملة</li>
+                    <li>سهولة الإعداد</li>
+                    <li>جودة صورة عالية</li>
+                    <li>دعم تقنية H.265+ للتشفير</li>
+                </ul>
+                <p><strong>العيوب:</strong></p>
+                <ul>
+                    <li>أسعار مرتفعة نسبياً</li>
+                    <li>قد تحتاج إلى مفكاك تشفير للبعض الموديلات</li>
+                </ul>
+            </div>
+            
+            <div class="brand-box">
+                <h3 class="brand-title">2. أنظمة Dahua</h3>
+                <p><strong>المميزات:</strong></p>
+                <ul>
+                    <li>أسعار منافسة</li>
+                    <li>جودة جيدة</li>
+                    <li>توافق مع معظم الكاميرات</li>
+                </ul>
+            </div>
+            
+            <div class="brand-box">
+                <h3 class="brand-title">3. الأنظمة المحلية (بدون ماركة)</h3>
+                <p>أنظمة صينية بأسعار منخفضة، ولكن:</p>
+                <ul>
+                    <li>جودة متوسطة</li>
+                    <li>دعم فني محدود</li>
+                    <li>واجهة إنجليزية فقط</li>
+                </ul>
+            </div>
+            
+            <h2>الإعداد الأولي للنظام</h2>
+            
+            <h3>الخطوة 1: التوصيلات الأساسية</h3>
+            <ol>
+                <li>وصل جهاز DVR بالكهرباء</li>
+                <li>ربط كابل الشبكة (RJ45) بالراوتر</li>
+                <li>وصل كاميرات BNC أو IP</li>
+                <li>ربط شاشة HDMI أو VGA</li>
+                <li>وصل الفأرة</li>
+            </ol>
+            
+            <h3>الخطوة 2: الإعدادات الأولية</h3>
+            <div class="code-block">
+<span class="comment"># عند تشغيل الجهاز لأول مرة:</span>
+1. اختيار اللغة: Arabic
+2. إعداد التاريخ والوقت
+3. إنشاء كلمة مرور مدير (Administrator)
+4. إعداد الشبكة
+   - DHCP أو Static IP
+   - Default Gateway: 192.168.1.1
+   - DNS: 8.8.8.8 / 8.8.4.4
+5. حفظ الإعدادات وإعادة التشغيل
+            </div>
+            
+            <h2>استرجاع كلمات المرور المنسية</h2>
+            
+            <h3>طريقة 1: استخدام SADP Tool (Hikvision)</h3>
+            <ol>
+                <li>نزل برنامج SADP من موقع Hikvision</li>
+                <li>شغله على كمبيوتر بنفس شبكة DVR</li>
+                <li>سيكتشف الجهاز تلقائياً</li>
+                <li>اختر الجهاز → Modify Network Parameters</li>
+                <li>أدخل كلمة المرور الجديدة</li>
+            </ol>
+            
+            <h3>طريقة 2: باستخدام XML File (Dahua)</h3>
+            <div class="code-block">
+1. أنشئ ملف config.xml بالمحتوى:
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ResetPassword version="1.0" xmlns="http://www.hikvision.com/ver20/XMLSchema"&gt;
+    &lt;userName&gt;admin&lt;/userName&gt;
+    &lt;newPassword&gt;12345&lt;/newPassword&gt;
+&lt;/ResetPassword&gt;
+
+2. احفظ الملف على فلاشة
+3. أدخل الفلاشة في منفذ USB بالجهاز
+4. أعد تشغيل الجهاز
+            </div>
+            
+            <h3>طريقة 3: Hard Reset</h3>
+            <p><strong>للموديلات القديمة:</strong></p>
+            <ol>
+                <li>افتح غطاء الجهاز</li>
+                <li>ابحث عن زر Reset (صغير عادة)</li>
+                <li>اضغط عليه بإبرة لمدة 10 ثواني</li>
+                <li>الجهاز سيعود للإعدادات المصنعية</li>
+                <li>كلمة المرور الافتراضية: admin/12345</li>
+            </ol>
+            
+            <h2>حل المشاكل الشائعة</h2>
+            
+            <table class="troubleshooting-table">
+                <thead>
+                    <tr>
+                        <th>المشكلة</th>
+                        <th>السبب المحتمل</th>
+                        <th>الحل</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>لا تظهر الصورة</td>
+                        <td>كابل BNC تالف<br>مشكلة في الكاميرا<br>إعدادات خاطئة</td>
+                        <td>1. فحص الكابل<br>2. تجربة كاميرا أخرى<br>3. ضبط Video Format</td>
+                    </tr>
+                    <tr>
+                        <td>لا يمكن الدخول عن بعد</td>
+                        <td>إعدادات الشبكة<br>جدار الحماية<br>مشكلة في P2P</td>
+                        <td>1. تفعيل UPnP<br>2. فتح منفذ 8000<br>3. استخدام خدمة Hik-Connect</td>
+                    </tr>
+                    <tr>
+                        <td>جهاز يعمل ببطء</td>
+                        <td>هارد ديسك ممتلئ<br>حرارة عالية<br>عدد كاميرات كبير</td>
+                        <td>1. تنظيف التسجيلات<br>2. تنظيف المروحة<br>3. تقليل جودة التسجيل</td>
+                    </tr>
+                    <tr>
+                        <td>لا يتعرف على الهارد</td>
+                        <td>هارد غير متوافق<br>توصيل خاطئ<br>هارد تالف</td>
+                        <td>1. تفحص التوافقية<br>2. إعادة التوصيل<br>3. فرمتة الهارد</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>الوصول عن بعد عبر الهاتف</h2>
+            
+            <h3>طريقة 1: تطبيق Hik-Connect</h3>
+            <ol>
+                <li>سجل في موقع Hikvision</li>
+                <li>أنشئ حساب Hik-Connect</li>
+                <li>في إعدادات DVR: Network → Platform Access</li>
+                <li>أدخل معلومات الحساب</li>
+                <li>حمل التطبيق على هاتفك وأضف الجهاز</li>
+            </ol>
+            
+            <h3>طريقة 2: DMZ أو Port Forwarding</h3>
+            <div class="code-block">
+<span class="comment"># في إعدادات الراوتر:</span>
+1. ابحث عن Port Forwarding
+2. أضف القاعدة:
+   - Service Port: 8000
+   - Internal IP: 192.168.1.X (IP الجهاز)
+   - Internal Port: 8000
+   - Protocol: TCP
+
+3. للدخول عن بعد:
+   http://public-ip:8000
+            </div>
+            
+            <h2>سكريبتات Python مفيدة</h2>
+            
+            <h3>سكريبت فحص أجهزة DVR على الشبكة</h3>
+            <div class="code-block">
+<span class="comment"># find_dvr.py</span>
+import socket
+import threading
+
+def scan_port(ip, port):
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex((ip, port))
+        if result == 0:
+            print(f"[+] Found DVR at {ip}:{port}")
+            try:
+                banner = sock.recv(1024)
+                print(f"    Banner: {banner[:100]}")
+            except:
+                pass
+        sock.close()
+    except:
+        pass
+
+def scan_network():
+    base_ip = "192.168.1."
+    ports = [80, 8000, 8080, 37777]  <span class="comment"># منافذ DVR شائعة</span>
+    
+    threads = []
+    for i in range(1, 255):
+        ip = base_ip + str(i)
+        for port in ports:
+            thread = threading.Thread(target=scan_port, args=(ip, port))
+            threads.append(thread)
+            thread.start()
+    
+    for thread in threads:
+        thread.join()
+
+scan_network()
+            </div>
+            
+            <h2>نصائح الصيانة الدورية</h2>
+            <ol>
+                <li><strong>أسبوعياً:</strong> تنظيف العدسات، فحص الكابلات</li>
+                <li><strong>شهرياً:</strong> تنظيف المروحة، فحص الهارد</li>
+                <li><strong>ربع سنوياً:</strong> تحديث البرنامج، فرمتة الهارد</li>
+                <li><strong>سنوياً:</strong> تغيير كلمة المرور، فحص كامل</li>
+            </ol>
+            
+            <div class="navigation">
+                <a href="network-security.html" class="nav-btn"><i class="fas fa-arrow-right"></i> المقال السابق: تأمين الشبكات</a>
+                <a href="bash-scripting.html" class="nav-btn">المقال التالي: برمجة Bash <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
