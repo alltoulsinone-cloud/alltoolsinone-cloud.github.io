@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدروس العملية | Tech Meknes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --dark: #1a2530;
+            --light: #ecf0f1;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--gradient);
+            padding: 1rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffdd40, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Categories */
+        .categories {
+            padding: 50px 0;
+            background: white;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .category-icon {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .category-cybersecurity {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .category-termux {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .category-networking {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .category-dvr {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .category-content {
+            padding: 30px;
+        }
+        
+        .category-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .category-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .tutorials-count {
+            display: inline-block;
+            background: var(--light);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Tutorials List */
+        .tutorials-section {
+            padding: 80px 0;
+            background: #f9fafc;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient);
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 5px;
+        }
+        
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .tutorial-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            position: relative;
+        }
+        
+        .tutorial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .tutorial-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .tutorial-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .tutorial-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        
+        .tutorial-card:hover .tutorial-overlay {
+            opacity: 1;
+        }
+        
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+        
+        .tutorial-content {
+            padding: 25px;
+        }
+        
+        .tutorial-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .tutorial-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .tutorial-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .tutorial-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .difficulty-beginner {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+        
+        .difficulty-intermediate {
+            background: #fff3cd;
+            color: #f39c12;
+        }
+        
+        .difficulty-advanced {
+            background: #f8d7da;
+            color: #e74c3c;
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .progress-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .progress-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .progress-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .progress-track {
+            margin-top: 40px;
+        }
+        
+        .progress-track h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .tutorials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-laptop-code"></i>
+                Tech Meknes
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="articles.html">المقالات</a></li>
+                <li><a href="tutorials.html" class="active">الدروس</a></li>
+                <li><a href="tools.html">الأدوات</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>🎓 الدروس العملية</h1>
+            <p>تعلم بالتطبيق العملي مع دروس مصورة وخطوة بخطوة في مختلف المجالات التقنية</p>
+        </div>
+    </header>
+    
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>📂 التصنيفات</h2>
+                <p>اختر المجال الذي تريد التعلم فيه</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon category-cybersecurity">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>الأمن السيبراني</h3>
+                        <p>دروس عملية في الحماية، الاختراق الأخلاقي، وتحليل الثغرات</p>
+                        <span class="tutorials-count">15 درس</span>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon category-termux">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Termux والأندرويد</h3>
+                        <p>تحويل هاتفك إلى جهاز اختراق أخلاقي متكامل</p>
+                        <span class="tutorials-count">12 درس</span>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon category-networking">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>الشبكات والسيرفرات</h3>
+                        <p>إدارة الشبكات، تكوين السيرفرات، وتحليل حركة البيانات</p>
+                        <span class="tutorials-count">10 درس</span>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon category-dvr">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>أنظمة المراقبة DVR</h3>
+                        <p>إعداد أنظمة المراقبة، استرجاع التسجيلات، وحل المشاكل</p>
+                        <span class="tutorials-count">8 درس</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Latest Tutorials -->
+    <section class="tutorials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>🎬 أحدث الدروس</h2>
+                <p>ابدأ رحلتك التعليمية مع هذه الدروس المميزة</p>
+            </div>
+            
+            <div class="tutorials-grid">
+                <!-- Tutorial 1 -->
+                <div class="tutorial-card">
+                    <span class="tutorial-badge">جديد</span>
+                    <div class="tutorial-image" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="tutorial-overlay">
+                            <a href="#" class="play-button">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-meta">
+                            <span><i class="far fa-clock"></i> 45 دقيقة</span>
+                            <span><i class="far fa-calendar"></i> 15 يناير 2024</span>
+                        </div>
+                        <h3>تثبيت وتشغيل Metasploit على Termux</h3>
+                        <p>تعلم كيفية تثبيت واستخدام إطار Metasploit للاختراق الأخلاقي على هاتف الأندرويد</p>
+                        <div class="tutorial-footer">
+                            <span class="difficulty difficulty-intermediate">متوسط</span>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">
+                                ابدأ التعلم <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tutorial 2 -->
+                <div class="tutorial-card">
+                    <div class="tutorial-image" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80');">
+                        <div class="tutorial-overlay">
+                            <a href="#" class="play-button">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-meta">
+                            <span><i class="far fa-clock"></i> 30 دقيقة</span>
+                            <span><i class="far fa-calendar"></i> 10 يناير 2024</span>
+                        </div>
+                        <h3>مسح الشبكات باستخدام Nmap</h3>
+                        <p>دليل عملي لاستخدام Nmap لاكتشاف الأجهزة والخدمات على الشبكة</p>
+                        <div class="tutorial-footer">
+                            <span class="difficulty difficulty-beginner">مبتدئ</span>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">
+                                ابدأ التعلم <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tutorial 3 -->
+                <div class="tutorial-card">
+                    <div class="tutorial-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80');">
+                        <div class="tutorial-overlay">
+                            <a href="#" class="play-button">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-meta">
+                            <span><i class="far fa-clock"></i> 60 دقيقة</span>
+                            <span><i class="far fa-calendar"></i> 5 يناير 2024</span>
+                        </div>
+                        <h3>تأمين شبكة الواي فاي المنزلية</h3>
+                        <p>خطوات عملية لتأمين راوترك، كشف المتسللين، ومنع سرقة النت</p>
+                        <div class="tutorial-footer">
+                            <span class="difficulty difficulty-beginner">مبتدئ</span>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">
+                                ابدأ التعلم <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tutorial 4 -->
+                <div class="tutorial-card">
+                    <div class="tutorial-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="tutorial-overlay">
+                            <a href="#" class="play-button">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-meta">
+                            <span><i class="far fa-clock"></i> 90 دقيقة</span>
+                            <span><i class="far fa-calendar"></i> 1 يناير 2024</span>
+                        </div>
+                        <h3>إنشاء مختبر اختراق على Kali Linux</h3>
+                        <p>كيفية إعداد وتجهيز بيئة Kali Linux لممارسة الاختراق الأخلاقي</p>
+                        <div class="tutorial-footer">
+                            <span class="difficulty difficulty-advanced">متقدم</span>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">
+                                ابدأ التعلم <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tutorial 5 -->
+                <div class="tutorial-card">
+                    <div class="tutorial-image" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="tutorial-overlay">
+                            <a href="#" class="play-button">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-meta">
+                            <span><i class="far fa-clock"></i> 40 دقيقة</span>
+                            <span><i class="far fa-calendar"></i> 28 ديسمبر 2023</span>
+                        </div>
+                        <h3>استرجاع كلمة مرور DVR المنسية</h3>
+                        <p>طرق استعادة كلمات مرور أنظمة Hikvision و Dahua بدون حذف الإعدادات</p>
+                        <div class="tutorial-footer">
+                            <span class="difficulty difficulty-intermediate">متوسط</span>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">
+                                ابدأ التعلم <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tutorial 6 -->
+                <div class="tutorial-card">
+                    <div class="tutorial-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="tutorial-overlay">
+                            <a href="#" class="play-button">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-meta">
+                            <span><i class="far fa-clock"></i> 50 دقيقة</span>
+                            <span><i class="far fa-calendar"></i> 25 ديسمبر 2023</span>
+                        </div>
+                        <h3>البرمجة بلغة Python للأمن السيبراني</h3>
+                        <p>كيفية استخدام Python لإنشاء أدوات أمنية وسكريبتات مفيدة</p>
+                        <div class="tutorial-footer">
+                            <span class="difficulty difficulty-intermediate">متوسط</span>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">
+                                ابدأ التعلم <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn" style="padding: 15px 40px; font-size: 1.1rem;">
+                    <i class="fas fa-book"></i> عرض جميع الدروس
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-container">
+                <div class="progress-header">
+                    <h3>📊 تقدمك التعليمي</h3>
+                    <p>تابع تقدمك في رحلة التعلم</p>
+                </div>
+                
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">دروس مكتملة</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">ساعة تعلم</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">شهادات محصل عليها</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">معدل الإنجاز</div>
+                    </div>
+                </div>
+                
+                <div class="progress-track">
+                    <h4>مسار الأمن السيبراني</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #666;">
+                        <span>65% مكتمل</span>
+                        <span>6/10 دروس</span>
+                    </div>
+                </div>
+                
+                <div class="progress-track">
+                    <h4>مسار Termux</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #666;">
+                        <span>80% مكتمل</span>
+                        <span>8/10 دروس</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">
+                        <i class="fas fa-laptop-code"></i> Tech Meknes
+                    </h3>
+                    <p>منصة تعليمية تقنية تهدف إلى نشر المعرفة التقنية باللغة العربية، مع التركيز على الجانب العملي والتطبيقي.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul style="list-style: none; margin-top: 20px;">
+                        <li><a href="index.html" style="color: #aaa; text-decoration: none;">الرئيسية</a></li>
+                        <li><a href="articles.html" style="color: #aaa; text-decoration: none;">المقالات</a></li>
+                        <li><a href="tutorials.html" style="color: #aaa; text-decoration: none;">الدروس</a></li>
+                        <li><a href="tools.html" style="color: #aaa; text-decoration: none;">الأدوات</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>اتصل بنا</h4>
+                    <div style="margin-top: 20px;">
+                        <p><i class="fas fa-envelope"></i> barbardragon653@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> مكناس، المغرب</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p>© 2024 Tech Meknes. جميع الحقوق محفوظة</p>
+                <p style="font-size: 0.9rem; color: #aaa; margin-top: 10px;">
+                    تم التطوير بحب ❤️ للتعليم التقني العربي
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Progress bar animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
