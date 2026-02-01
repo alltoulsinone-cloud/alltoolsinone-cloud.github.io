@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات التعليمية | Tech Meknes</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/articles.css">
+</head>
+<body>
+    <!-- نفس الهيدر والفوتر مع تعديلات بسيطة -->
+    
+    <main class="articles-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>📚 المقالات التعليمية</h1>
+                <p>مجموعة شاملة من المقالات التقنية المكتوبة باحترافية وباللغة العربية</p>
+            </div>
+            
+            <div class="articles-controls">
+                <div class="search-filter">
+                    <input type="text" placeholder="بحث في المقالات...">
+                    <select>
+                        <option value="">جميع التصنيفات</option>
+                        <option value="cybersecurity">الأمن السيبراني</option>
+                        <option value="termux">Termux</option>
+                        <option value="networking">الشبكات</option>
+                        <option value="dvr">أنظمة DVR</option>
+                    </select>
+                </div>
+                
+                <div class="sort-options">
+                    <span>ترتيب حسب:</span>
+                    <button class="sort-btn active" data-sort="newest">الأحدث</button>
+                    <button class="sort-btn" data-sort="popular">الأكثر قراءة</button>
+                    <button class="sort-btn" data-sort="alphabetical">أبجدي</button>
+                </div>
+            </div>
+            
+            <div class="articles-grid">
+                <!-- مقالات ستأتي من JavaScript أو backend -->
+            </div>
+            
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span>...</span>
+                <button class="page-btn">10</button>
+                <button class="page-btn next">التالي →</button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../script.js"></script>
+    <script src="../js/articles.js"></script>
+</body>
+</html>
