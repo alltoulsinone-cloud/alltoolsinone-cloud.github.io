@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن | Tech Meknes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #9b59b6;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            text-align: center;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)),
+                        url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffdd40, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            padding: 100px 0;
+            background: white;
+            margin-top: -50px;
+            border-radius: 30px 30px 0 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .mission-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.1);
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 100px 0;
+            background: #f9fafc;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .team-img {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+        
+        .team-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, white, transparent);
+        }
+        
+        .team-content {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        /* Timeline */
+        .timeline-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--secondary);
+            transform: translateX(50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-right: auto;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            border: 4px solid white;
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 100px 0;
+            background: #f9fafc;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (Same as before) -->
+    <nav class="main-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-laptop-code"></i>
+                <span>Tech Meknes</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="articles.html">المقالات</a></li>
+                <li><a href="tutorials.html">الدروس</a></li>
+                <li><a href="tools.html">الأدوات</a></li>
+                <li><a href="about.html" class="active">من نحن</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>من نحن</h1>
+            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto; opacity: 0.9;">
+                منصة تعليمية تقنية تهدف إلى تمكين الشباب العربي بالمعرفة التقنية العملية
+            </p>
+        </div>
+    </section>
+    
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 20px;">رسالتنا ورؤيتنا</h2>
+                <p style="color: #666; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                    نسعى لجعل التعليم التقني متاحاً للجميع باللغة العربية، مع التركيز على الجانب العملي والتطبيقي.
+                </p>
+            </div>
+            
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">الرسالة</h3>
+                    <p style="color: #666;">تقديم تعليم تقني عالي الجودة باللغة العربية، يركز على الجانب العملي ويواكب أحدث التقنيات.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="value-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">الرؤية</h3>
+                    <p style="color: #666;">أن نكون المنصة العربية الرائدة في التعليم التقني العملي والأمن السيبراني.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">القيم</h3>
+                    <p style="color: #666;">الجودة، الشفافية، العمل الجماعي، والابتكار في تقديم المحتوى التعليمي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Story Section -->
+    <section class="team-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 20px;">قصتنا</h2>
+                <p style="color: #666; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                    بدأنا رحلتنا من مدينة مكناس بالمغرب، ولاحظنا نقصاً كبيراً في المحتوى التقني العربي العملي. 
+                    قررنا إنشاء منصة تجمع بين النظرية والتطبيق.
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div class="timeline-dot"></div>
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">يناير 2023</h3>
+                        <p style="color: #666;">بداية الفكرة وإنشاء أول محتوى تعليمي</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" style="margin-right: 55%;">
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div class="timeline-dot"></div>
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">يونيو 2023</h3>
+                        <p style="color: #666;">إطلاق أول دورة في الأمن السيبراني</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div class="timeline-dot"></div>
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">ديسمبر 2023</h3>
+                        <p style="color: #666;">تجاوز 10,000 متعلم</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" style="margin-right: 55%;">
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div class="timeline-dot"></div>
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">يناير 2024</h3>
+                        <p style="color: #666;">إطلاق منصة Tech Meknes الكاملة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">أرقامنا تتحدث</h2>
+            <p style="opacity: 0.9; max-width: 600px; margin: 0 auto;">إنجازاتنا خلال رحلتنا التعليمية</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">25,000+</div>
+                    <p>متعلم نشط</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <p>درس ومقال</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">42+</div>
+                    <p>أداة مجانية</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <p>رضا المتعلمين</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 20px;">قيمنا الأساسية</h2>
+                <p style="color: #666; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                    المبادئ التي نؤمن بها ونسير عليها في كل ما نقدمه
+                </p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">التعليم المجاني</h3>
+                    <p style="color: #666;">نؤمن بأن التعليم حق للجميع، لذلك نقدم محتوانا مجاناً.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">الجانب العملي</h3>
+                    <p style="color: #666;">نركز على التطبيق العملي أكثر من النظرية المجردة.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">المجتمع</h3>
+                    <p style="color: #666;">نبني مجتمعاً تعليمياً يدعم بعضه البعض.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">الجودة</h3>
+                    <p style="color: #666;">نلتزم بأعلى معايير الجودة في المحتوى المقدم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 20px;">فريقنا</h2>
+                <p style="color: #666; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                    فريق من المهووسين بالتكنولوجيا والتعليم، يعملون ليل نهار لتقديم أفضل محتوى
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img"></div>
+                    <div class="team-content">
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">محمد</h3>
+                        <p style="color: var(--secondary); margin-bottom: 15px;">خبير الأمن السيبراني</p>
+                        <p style="color: #666; font-size: 0.9rem;">+5 سنوات خبرة في مجال الأمن السيبراني والاختراق الأخلاقي</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img"></div>
+                    <div class="team-content">
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">علي</h3>
+                        <p style="color: var(--secondary); margin-bottom: 15px;">مطور أدوات Termux</p>
+                        <p style="color: #666; font-size: 0.9rem;">متخصص في تطوير أدوات الهكر الأخلاقي على منصة Android</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img"></div>
+                    <div class="team-content">
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">فاطمة</h3>
+                        <p style="color: var(--secondary); margin-bottom: 15px;">مديرة المحتوى</p>
+                        <p style="color: #666; font-size: 0.9rem;">تنظيم وتحرير المحتوى التعليمي لضمان الجودة والفائدة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer style="background: var(--primary); color: white; padding: 70px 0 30px;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 50px;">
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-laptop-code"></i>
+                        Tech Meknes
+                    </h3>
+                    <p style="opacity: 0.9; margin-bottom: 20px;">منصة تعليمية تقنية تقدم أدوات مجانية ومحتوى تعليمي باللغة العربية.</p>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px;">روابط سريعة</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: #aaa; text-decoration: none;">الرئيسية</a></li>
+                        <li style="margin-bottom: 10px;"><a href="articles.html" style="color: #aaa; text-decoration: none;">المقالات</a></li>
+                        <li style="margin-bottom: 10px;"><a href="tutorials.html" style="color: #aaa; text-decoration: none;">الدروس</a></li>
+                        <li style="margin-bottom: 10px;"><a href="tools.html" style="color: #aaa; text-decoration: none;">الأدوات</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px;">اتصل بنا</h4>
+                    <div>
+                        <p style="margin-bottom: 10px; opacity: 0.9;"><i class="fas fa-envelope"></i> barbardragon653@gmail.com</p>
+                        <p style="opacity: 0.9;"><i class="fas fa-map-marker-alt"></i> مكناس، المغرب</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p>© 2024 Tech Meknes. جميع الحقوق محفوظة</p>
+                <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">تم التطوير بحب ❤️ للتعليم التقني العربي</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
